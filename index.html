@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="VitalFlow — Smart Blood Donation System. Connect with hospitals, donate blood, save lives."/>
+<meta name="theme-color" content="#f20d20"/>
+<title>VitalFlow — Smart Blood Donation System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div id="app">
+
+<!-- ========================================================
+     PAGE: LANDING
+     ======================================================== -->
+<div id="page-landing" class="page hero-bg">
+
+  <!-- Navigation -->
+  <header class="landing-nav">
+    <div class="nav-pill">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:34px;height:34px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(242,13,32,0.3);">
+          <span class="material-symbols-outlined" style="color:white;font-size:18px;font-variation-settings:'FILL' 1;">water_drop</span>
+        </div>
+        <span class="font-serif" style="font-size:18px;">VitalFlow</span>
+      </div>
+      <div style="display:flex;gap:28px;" class="nav-links-desktop">
+        <a href="#how-it-works" style="font-size:13px;font-weight:500;color:var(--text-secondary);transition:color 0.2s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-secondary)'">How It Works</a>
+        <a href="#voices" style="font-size:13px;font-weight:500;color:var(--text-secondary);transition:color 0.2s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-secondary)'">Stories</a>
+        <a href="#faq" style="font-size:13px;font-weight:500;color:var(--text-secondary);transition:color 0.2s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-secondary)'">FAQ</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button class="btn btn-ghost btn-sm" onclick="navigateTo('login')">Log In</button>
+        <button class="btn btn-primary btn-sm" onclick="navigateTo('register')">Register</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="landing-main">
+    <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+
+      <!-- HERO -->
+      <section style="display:flex;flex-direction:column;align-items:center;gap:56px;padding:60px 0 80px;">
+        <div style="max-width:660px;text-align:center;">
+          <div class="badge badge-live" style="margin-bottom:24px;font-size:11px;">
+            <span class="dot"></span>
+            <span id="hero-live-text">Live Network · 3 Urgent Requests</span>
+          </div>
+          <h1 class="font-serif" style="font-size:clamp(48px,8vw,80px);line-height:1.06;margin-bottom:20px;">
+            Every drop<br/><em style="color:var(--primary);">saves</em> a life.
+          </h1>
+          <p style="font-size:17px;color:var(--text-secondary);max-width:520px;margin:0 auto 32px;line-height:1.7;font-weight:300;">
+            Connect with hospitals that need your blood type right now. Real-time matching, distance tracking, and instant notifications — making donation smart, simple, and life-saving.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:48px;">
+            <button class="btn btn-primary btn-lg" onclick="navigateTo('register')">
+              <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">volunteer_activism</span>
+              Become a Donor
+            </button>
+            <button class="btn btn-ghost btn-lg" onclick="navigateTo('request-blood')">
+              <span class="material-symbols-outlined" style="font-size:18px;">local_hospital</span>
+              Request Blood
+            </button>
+          </div>
+          <!-- Stats -->
+          <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+            <div style="text-align:center;">
+              <div class="font-serif" style="font-size:26px;color:var(--text-primary);" id="stat-donors">1,200</div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;">Donors</div>
+            </div>
+            <div style="width:1px;background:var(--border-subtle);"></div>
+            <div style="text-align:center;">
+              <div class="font-serif" style="font-size:26px;color:var(--text-primary);" id="stat-donations">4,800</div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;">Donations</div>
+            </div>
+            <div style="width:1px;background:var(--border-subtle);"></div>
+            <div style="text-align:center;">
+              <div class="font-serif" style="font-size:26px;color:var(--primary);" id="stat-lives">2,500</div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;">Lives Saved</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Request Card -->
+        <div class="glass card-xl" style="width:100%;max-width:520px;padding:28px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <h3 style="font-size:15px;font-weight:700;color:var(--text-primary);">Live Blood Requests</h3>
+            <span class="badge badge-live" style="font-size:10px;">
+              <span class="dot"></span>Live
+            </span>
+          </div>
+          <div id="landing-requests" style="display:flex;flex-direction:column;gap:8px;"></div>
+          <button class="btn btn-primary w-full" style="margin-top:18px;" onclick="navigateTo('login')">
+            <span class="material-symbols-outlined" style="font-size:17px;">volunteer_activism</span>
+            View All Requests & Donate
+          </button>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-it-works" style="padding:80px 0;">
+        <div style="text-align:center;margin-bottom:52px;">
+          <h2 class="font-serif" style="font-size:clamp(30px,5vw,44px);margin-bottom:12px;">The Seamless Process</h2>
+          <p style="color:var(--text-muted);font-size:15px;max-width:420px;margin:0 auto;font-weight:300;">Three simple steps to becoming a hero in your local community.</p>
+        </div>
+        <div class="grid-3">
+          <div class="glass card" style="padding:36px 28px;text-align:center;transition:transform 0.3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
+            <div style="width:60px;height:60px;border-radius:16px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+              <span class="material-symbols-outlined" style="color:var(--primary);font-size:30px;">person_add</span>
+            </div>
+            <h3 style="font-size:17px;font-weight:700;margin-bottom:10px;">Smart Registration</h3>
+            <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;font-weight:300;">Create your biological profile in seconds. Our AI determines your optimal donation schedule.</p>
+          </div>
+          <div class="glass card" style="padding:36px 28px;text-align:center;transition:transform 0.3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
+            <div style="width:60px;height:60px;border-radius:16px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+              <span class="material-symbols-outlined" style="color:var(--primary);font-size:30px;">notifications_active</span>
+            </div>
+            <h3 style="font-size:17px;font-weight:700;margin-bottom:10px;">Intelligent Matching</h3>
+            <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;font-weight:300;">Real-time alerts when your specific blood type is needed at the nearest medical facility.</p>
+          </div>
+          <div class="glass card" style="padding:36px 28px;text-align:center;transition:transform 0.3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
+            <div style="width:60px;height:60px;border-radius:16px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+              <span class="material-symbols-outlined" style="color:var(--primary);font-size:30px;font-variation-settings:'FILL' 1;">favorite</span>
+            </div>
+            <h3 style="font-size:17px;font-weight:700;margin-bottom:10px;">Save Lives</h3>
+            <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;font-weight:300;">Visit a certified center and complete your donation in under 30 minutes. Track your impact live.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DATA IMPACT SECTION -->
+      <section style="padding:20px 0 80px;">
+        <div class="glass card-xl" style="padding:0;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;min-height:360px;">
+            <div style="background:linear-gradient(135deg,#fff5f5,#ffeaea);display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden;">
+              <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 60%,rgba(242,13,32,0.12),transparent 60%);pointer-events:none;"></div>
+              <div style="text-align:center;position:relative;z-index:1;">
+                <div style="font-size:56px;margin-bottom:8px;">🩺</div>
+                <p style="font-size:13px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Community Impact</p>
+                <div class="font-serif" style="font-size:28px;color:var(--primary);margin-bottom:4px;">99.8%</div>
+                <p style="font-size:13px;color:var(--text-secondary);">Matching Accuracy</p>
+                <div style="width:40px;height:2px;background:var(--primary);margin:16px auto;border-radius:1px;"></div>
+                <div class="font-serif" style="font-size:28px;color:var(--text-primary);margin-bottom:4px;">15min</div>
+                <p style="font-size:13px;color:var(--text-secondary);">Average Logistics Time</p>
+              </div>
+            </div>
+            <div style="padding:40px 44px;display:flex;flex-direction:column;justify-content:center;">
+              <h2 class="font-serif" style="font-size:clamp(24px,3vw,38px);line-height:1.2;margin-bottom:16px;">
+                Driven by Data,<br/><em style="color:var(--primary);">delivered</em> with heart.
+              </h2>
+              <p style="color:var(--text-secondary);font-size:15px;line-height:1.7;margin-bottom:24px;font-weight:300;">
+                Our platform isn't just about logistics. It's about the humans behind the data. We bridge the gap between generosity and necessity with precision.
+              </p>
+              <p style="font-size:13px;color:var(--text-muted);background:#f8fafc;border-radius:8px;padding:10px 14px;border-left:3px solid var(--primary);">
+                🏥 Over 500,000 units delivered this quarter across 40 cities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VOICES OF THE FLOW -->
+      <section id="voices" style="padding:0 0 80px;">
+        <div style="text-align:center;margin-bottom:48px;">
+          <h2 class="font-serif" style="font-size:clamp(28px,5vw,44px);margin-bottom:10px;">Voices of the Flow</h2>
+          <p style="color:var(--text-muted);font-size:15px;font-weight:300;">Real stories from donors, recipients, and coordinators.</p>
+        </div>
+        <div class="voices-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p style="font-size:14px;color:var(--text-secondary);line-height:1.75;margin-bottom:20px;font-style:italic;font-weight:300;">
+              "The VitalFlow app made it so easy. I knew exactly when my local hospital was running low on B+. I felt like a superhero just by spending my lunch break at the center."
+            </p>
+            <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border-subtle);">
+              <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#fee2e2,#fca5a5);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--primary);">S</div>
+              <div>
+                <p style="font-size:14px;font-weight:700;color:var(--text-primary);">Sarah J.</p>
+                <p style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Regular Donor</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p style="font-size:14px;color:var(--text-secondary);line-height:1.75;margin-bottom:20px;font-style:italic;font-weight:300;">
+              "As a recipient during surgery, I saw the VitalFlow label on the unit I received. Knowing that someone was notified and donated just for me is a feeling I can't describe."
+            </p>
+            <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border-subtle);">
+              <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#dbeafe,#93c5fd);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--info);">D</div>
+              <div>
+                <p style="font-size:14px;font-weight:700;color:var(--text-primary);">David M.</p>
+                <p style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Recovery Recipient</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p style="font-size:14px;color:var(--text-secondary);line-height:1.75;margin-bottom:20px;font-style:italic;font-weight:300;">
+              "Managing a blood drive used to be guesswork. Now with the VitalFlow dashboard, we know exactly what types are needed and can message donors in real-time."
+            </p>
+            <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border-subtle);">
+              <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#dcfce7,#86efac);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--success);">E</div>
+              <div>
+                <p style="font-size:14px;font-weight:700;color:var(--text-primary);">Elena R.</p>
+                <p style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Center Coordinator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" style="padding:0 0 80px;">
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start;">
+          <div>
+            <h2 class="font-serif" style="font-size:clamp(26px,4vw,38px);margin-bottom:14px;">Common Questions</h2>
+            <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;font-weight:300;margin-bottom:24px;">Everything you need to know about the donation process and how VitalFlow works.</p>
+            <button class="btn btn-primary" onclick="navigateTo('register')">
+              <span class="material-symbols-outlined" style="font-size:17px;">help</span> Get Started
+            </button>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="accordion-item">
+              <button class="accordion-trigger">
+                <h4>Is it safe to donate during the week?</h4>
+                <span class="material-symbols-outlined accordion-icon">expand_more</span>
+              </button>
+              <div class="accordion-body"><div class="accordion-body-inner"><p>Absolutely. All our partner centers follow the highest medical safety protocols. Your body replenishes fluids within 24 hours and red blood cells within a few weeks. Most donors feel completely normal after the procedure.</p></div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">
+                <h4>How does the "Smart Matching" work?</h4>
+                <span class="material-symbols-outlined accordion-icon">expand_more</span>
+              </button>
+              <div class="accordion-body"><div class="accordion-body-inner"><p>Our system analyzes local hospital inventories and donor proximity. When a specific blood type shortage is detected, we send targeted notifications to eligible donors nearby — based on your blood type, last donation date, and distance from the hospital.</p></div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">
+                <h4>Can I track my blood after donation?</h4>
+                <span class="material-symbols-outlined accordion-icon">expand_more</span>
+              </button>
+              <div class="accordion-body"><div class="accordion-body-inner"><p>Yes! Once processed, your donation history will reflect the completed donation and you'll receive reward points. In future updates, you'll receive a notification when your donation has been used to help a patient.</p></div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">
+                <h4>How often can I donate blood?</h4>
+                <span class="material-symbols-outlined accordion-icon">expand_more</span>
+              </button>
+              <div class="accordion-body"><div class="accordion-body-inner"><p>Whole blood can be donated every 56 days (8 weeks). VitalFlow automatically tracks your eligibility and notifies you when you're ready to donate again, so you never have to worry about timing.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section style="padding:0 0 80px;">
+        <div class="cta-strip">
+          <div class="cta-strip-glow"></div>
+          <div style="position:relative;z-index:1;">
+            <h2 class="font-serif" style="font-size:clamp(30px,5vw,52px);color:white;margin-bottom:14px;">Ready to flow into action?</h2>
+            <p style="color:rgba(255,255,255,0.5);font-size:16px;margin-bottom:36px;font-weight:300;">Join 850,000+ active donors and become a vital part of the nation's healthcare infrastructure.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+              <button class="btn btn-primary btn-lg" onclick="navigateTo('register')">Register as Donor</button>
+              <button class="btn btn-white btn-lg" onclick="navigateTo('request-blood')">Submit Blood Request</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- max-width -->
+  </main>
+
+  <!-- Footer -->
+  <footer style="border-top:1px solid var(--border-subtle);padding:48px 24px 32px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+            <span class="material-symbols-outlined" style="color:var(--primary);font-size:22px;font-variation-settings:'FILL' 1;">water_drop</span>
+            <span class="font-serif" style="font-size:17px;">VitalFlow</span>
+          </div>
+          <p style="font-size:13px;color:var(--text-muted);max-width:300px;line-height:1.7;font-weight:300;">Modernizing the lifeblood of our healthcare system through technology, transparency, and community connection.</p>
+        </div>
+        <div>
+          <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:14px;">Platform</p>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <a onclick="navigateTo('register')" style="font-size:13px;color:var(--text-muted);cursor:pointer;transition:color 0.15s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-muted)'">How It Works</a>
+            <a onclick="navigateTo('request-blood')" style="font-size:13px;color:var(--text-muted);cursor:pointer;transition:color 0.15s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-muted)'">Request Blood</a>
+            <a onclick="navigateTo('login')" style="font-size:13px;color:var(--text-muted);cursor:pointer;transition:color 0.15s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-muted)'">Donor Rewards</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-secondary);margin-bottom:14px;">Support</p>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <a href="#faq" style="font-size:13px;color:var(--text-muted);transition:color 0.15s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-muted)'">Help Center</a>
+            <a href="#" style="font-size:13px;color:var(--text-muted);transition:color 0.15s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-muted)'">Safety Protocols</a>
+            <a href="#" style="font-size:13px;color:var(--text-muted);transition:color 0.15s;" onmouseenter="this.style.color='var(--primary)'" onmouseleave="this.style.color='var(--text-muted)'">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border-subtle);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <p style="font-size:12px;color:var(--text-muted);">© 2025 VitalFlow Platform. All rights reserved.</p>
+        <div style="display:flex;gap:20px;">
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">System Status</span>
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">Partners</span>
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">Accessibility</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ========================================================
+     PAGE: LOGIN
+     ======================================================== -->
+<div id="page-login" class="page" style="background:radial-gradient(ellipse at 10% 15%,rgba(242,13,32,0.07),transparent 40%),radial-gradient(ellipse at 90% 85%,rgba(242,13,32,0.05),transparent 40%),var(--bg);">
+  <div style="position:absolute;top:-80px;left:-80px;width:280px;height:280px;background:rgba(242,13,32,0.06);border-radius:50%;blur:80px;pointer-events:none;"></div>
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <button onclick="navigateTo('landing')" style="display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;color:var(--text-primary);">
+      <span class="material-symbols-outlined" style="color:var(--primary);font-size:22px;font-variation-settings:'FILL' 1;">water_drop</span>
+      <span class="font-serif" style="font-size:18px;">VitalFlow</span>
+    </button>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-size:13px;color:var(--text-muted);">No account?</span>
+      <button class="btn btn-ghost btn-sm" onclick="navigateTo('register')">Register</button>
+    </div>
+  </header>
+  <main style="display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 80px);padding:20px;">
+    <div style="width:100%;max-width:440px;" class="animate-scale">
+      <div class="glass card-xl" style="padding:40px;">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h1 class="font-serif" style="font-size:36px;margin-bottom:8px;">Welcome Back</h1>
+          <p style="color:var(--text-muted);font-size:14px;">Sign in to your donor account</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <div class="input-with-icon">
+              <span class="material-symbols-outlined input-icon">mail</span>
+              <input type="email" id="login-email" class="form-input" placeholder="name@example.com" autocomplete="email" oninput="updateLoginFieldValidation()"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-with-icon" style="position:relative;">
+              <span class="material-symbols-outlined input-icon">lock</span>
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••" autocomplete="current-password"
+                oninput="updateLoginFieldValidation()" onkeydown="if(event.key==='Enter')handleLogin()"/>
+              <button type="button" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:4px;display:flex;z-index:2;" 
+                onclick="togglePasswordVisibility('login-password', this)">
+                <span class="material-symbols-outlined" style="font-size:18px;">visibility_off</span>
+              </button>
+            </div>
+          </div>
+          <p id="login-error" class="form-error hidden"></p>
+          <button class="btn btn-primary w-full" style="padding:14px;font-size:15px;" onclick="handleLogin()">Sign In</button>
+        </div>
+        <div class="divider" style="margin:28px 0;">Or try a demo</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <button onclick="demoLogin('donor')" class="btn btn-ghost" style="font-size:13px;">
+            <span class="material-symbols-outlined" style="font-size:17px;color:var(--primary);font-variation-settings:'FILL' 1;">volunteer_activism</span>
+            Login as Donor
+          </button>
+          <button onclick="demoLogin('hospital')" class="btn btn-ghost" style="font-size:13px;">
+            <span class="material-symbols-outlined" style="font-size:17px;color:var(--primary);">local_hospital</span>
+            Login as Hospital
+          </button>
+        </div>
+        <p style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:24px;">
+          By signing in, you agree to our <a href="#" style="color:var(--primary);">Terms</a> & <a href="#" style="color:var(--primary);">Privacy</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ========================================================
+     PAGE: REGISTER
+     ======================================================== -->
+<div id="page-register" class="page" style="background:radial-gradient(ellipse at 10% 15%,rgba(242,13,32,0.06),transparent 40%),var(--bg);">
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;">
+    <button onclick="navigateTo('landing')" style="display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;color:var(--text-primary);">
+      <span class="material-symbols-outlined" style="color:var(--primary);font-size:22px;font-variation-settings:'FILL' 1;">water_drop</span>
+      <span class="font-serif" style="font-size:18px;">VitalFlow</span>
+    </button>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-size:13px;color:var(--text-muted);">Have an account?</span>
+      <button class="btn btn-ghost btn-sm" onclick="navigateTo('login')">Sign In</button>
+    </div>
+  </header>
+  <main style="display:flex;align-items:flex-start;justify-content:center;padding:24px 20px 48px;">
+    <div style="width:100%;max-width:520px;" class="animate-scale">
+      <div class="glass card-xl" style="padding:36px;">
+        <div style="text-align:center;margin-bottom:28px;">
+          <h1 class="font-serif" style="font-size:34px;margin-bottom:8px;">Join VitalFlow</h1>
+          <p style="color:var(--text-muted);font-size:14px;">Create your account to start saving lives</p>
+        </div>
+        <!-- Role Switcher -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#f1f5f9;border-radius:14px;padding:5px;margin-bottom:24px;">
+          <button class="role-tab" data-role="donor" onclick="setRole('donor')" style="padding:11px;border-radius:10px;font-size:13px;font-weight:600;background:white;box-shadow:var(--shadow-sm);color:var(--text-primary);border:none;cursor:pointer;transition:all 0.18s;display:flex;align-items:center;justify-content:center;gap:7px;">
+            <span class="material-symbols-outlined" style="font-size:16px;color:var(--primary);font-variation-settings:'FILL' 1;">volunteer_activism</span> Donor
+          </button>
+          <button class="role-tab" data-role="hospital" onclick="setRole('hospital')" style="padding:11px;border-radius:10px;font-size:13px;font-weight:600;background:transparent;color:var(--text-muted);border:none;cursor:pointer;transition:all 0.18s;display:flex;align-items:center;justify-content:center;gap:7px;">
+            <span class="material-symbols-outlined" style="font-size:16px;">local_hospital</span> Hospital
+          </button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="grid-2">
+            <div class="form-group"><label class="form-label">First Name *</label><input type="text" id="reg-fname" class="form-input" placeholder="Alex" oninput="validateRegField('reg-fname')"/></div>
+            <div class="form-group"><label class="form-label">Last Name *</label><input type="text" id="reg-lname" class="form-input" placeholder="Johnson" oninput="validateRegField('reg-lname')"/></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="alex@email.com" oninput="validateRegField('reg-email');checkEmailAvailability()"/>
+            <p id="email-feedback" class="hidden" style="font-size:12px;margin-top:6px;display:flex;align-items:center;gap:5px;"></p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password *</label>
+            <div class="input-with-icon" style="position:relative;">
+              <input type="password" id="reg-password" class="form-input" placeholder="Min 6 characters" oninput="validateRegField('reg-password');updatePasswordStrength()" style="padding-right:42px;"/>
+              <button type="button" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:4px;display:flex;z-index:2;" 
+                onclick="togglePasswordVisibility('reg-password', this)">
+                <span class="material-symbols-outlined" style="font-size:18px;">visibility_off</span>
+              </button>
+            </div>
+            <div class="hidden" style="margin-top:8px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                <div style="flex:1;height:4px;background:#f0f0f0;border-radius:2px;overflow:hidden;">
+                  <div id="password-strength" style="height:100%;width:0%;transition:all 0.3s;background:#ef4444;border-radius:2px;"></div>
+                </div>
+                <span id="password-strength-text" style="font-size:12px;font-weight:600;white-space:nowrap;width:80px;text-align:right;">Weak</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Donor Fields -->
+          <div id="donor-fields">
+            <div class="grid-2" style="margin-bottom:16px;">
+              <div class="form-group">
+                <label class="form-label">Blood Type *</label>
+                <select id="reg-bloodtype" class="form-select" oninput="validateRegField('reg-bloodtype')">
+                  <option value="">Select type</option>
+                  <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                  <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                </select>
+              </div>
+              <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" id="reg-phone" class="form-input" placeholder="+91 98765 43210" oninput="validateRegField('reg-phone')"/></div>
+            </div>
+            <div class="form-group"><label class="form-label">City / Location *</label><input type="text" id="reg-city" class="form-input" placeholder="Mumbai, Maharashtra" oninput="validateRegField('reg-city')"/></div>
+          </div>
+
+          <!-- Hospital Fields -->
+          <div id="hospital-fields" class="hidden">
+            <div class="form-group" style="margin-bottom:16px;"><label class="form-label">Hospital Name *</label><input type="text" id="reg-hospital-name" class="form-input" placeholder="City General Hospital" oninput="validateRegField('reg-hospital-name')"/></div>
+            <div class="form-group" style="margin-bottom:16px;"><label class="form-label">Hospital Address *</label><input type="text" id="reg-hospital-address" class="form-input" placeholder="123 Medical District, Mumbai" oninput="validateRegField('reg-hospital-address')"/></div>
+            <div class="form-group"><label class="form-label">Contact Number</label><input type="tel" id="reg-hospital-phone" class="form-input" placeholder="+91 22 1234 5678" oninput="validateRegField('reg-hospital-phone')"/></div>
+          </div>
+
+          <p id="reg-error" class="form-error hidden"></p>
+          <button class="btn btn-primary w-full" style="padding:14px;font-size:15px;margin-top:4px;" onclick="handleRegister()">Create Account</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ========================================================
+     PAGE: REQUEST BLOOD (Public)
+     ======================================================== -->
+<div id="page-request-blood" class="page" style="background:var(--bg);">
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:20px 32px;border-bottom:1px solid var(--border-subtle);">
+    <button onclick="navigateTo('landing')" style="display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;color:var(--text-primary);">
+      <span class="material-symbols-outlined" style="color:var(--primary);font-size:22px;font-variation-settings:'FILL' 1;">water_drop</span>
+      <span class="font-serif" style="font-size:18px;">VitalFlow</span>
+    </button>
+    <button class="btn btn-ghost btn-sm" onclick="navigateTo('login')">Login</button>
+  </header>
+  <main style="display:flex;align-items:flex-start;justify-content:center;padding:36px 20px 60px;">
+    <div style="width:100%;max-width:580px;" class="animate-fade">
+      <div class="glass card-xl" style="padding:36px;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
+          <div style="width:50px;height:50px;background:rgba(242,13,32,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+            <span class="material-symbols-outlined" style="color:var(--primary);font-size:24px;">emergency</span>
+          </div>
+          <div>
+            <h1 class="font-serif" style="font-size:28px;margin-bottom:4px;">Request Blood</h1>
+            <p style="font-size:13px;color:var(--text-muted);">Fill in details below to alert nearby donors instantly</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="grid-2">
+            <div class="form-group"><label class="form-label">Patient Name *</label><input type="text" id="pub-patient" class="form-input" placeholder="Patient name"/></div>
+            <div class="form-group">
+              <label class="form-label">Blood Type Needed *</label>
+              <select id="pub-blood" class="form-select">
+                <option value="">Select type</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="form-group"><label class="form-label">Units Required *</label><input type="number" id="pub-units" class="form-input" placeholder="2" min="1" max="20"/></div>
+            <div class="form-group">
+              <label class="form-label">Urgency Level</label>
+              <select id="pub-urgency" class="form-select">
+                <option value="urgent">🔴 Urgent (ASAP)</option>
+                <option value="high">🟠 High Priority</option>
+                <option value="normal">🟢 Normal</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Hospital Name *</label><input type="text" id="pub-hospital" class="form-input" placeholder="City General Hospital"/></div>
+          <div class="form-group"><label class="form-label">Hospital Address *</label><input type="text" id="pub-address" class="form-input" placeholder="Bandra West, Mumbai"/></div>
+          <div class="grid-2">
+            <div class="form-group"><label class="form-label">Contact Number *</label><input type="tel" id="pub-contact" class="form-input" placeholder="+91 98765 43210"/></div>
+            <div class="form-group"><label class="form-label">Distance from City Center (km)</label><input type="number" id="pub-distance" class="form-input" placeholder="3.5" min="0.1" step="0.1"/></div>
+          </div>
+          <div class="form-group"><label class="form-label">Additional Notes</label><textarea id="pub-notes" class="form-textarea" placeholder="Special requirements, surgery schedule, etc..."></textarea></div>
+          <p id="pub-error" class="form-error hidden"></p>
+          <button class="btn btn-primary w-full" style="padding:14px;font-size:15px;" onclick="handlePublicRequest()">
+            <span class="material-symbols-outlined" style="font-size:17px;">send</span>
+            Submit Blood Request
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ========================================================
+     PAGE: DONOR DASHBOARD
+     ======================================================== -->
+<div id="page-dashboard" class="page">
+  <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+  <div class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <span class="material-symbols-outlined" style="color:white;font-size:18px;font-variation-settings:'FILL' 1;">water_drop</span>
+        </div>
+        <span class="sidebar-logo-text">VitalFlow</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-item active" id="dnav-home" onclick="showDashTab('home')">
+          <span class="material-symbols-outlined">dashboard</span> Dashboard
+        </div>
+        <div class="nav-item" id="dnav-requests" onclick="showDashTab('requests')">
+          <span class="material-symbols-outlined">emergency</span> Blood Requests
+          <span class="nav-badge">0</span>
+        </div>
+        <div class="nav-item" id="dnav-history" onclick="showDashTab('history')">
+          <span class="material-symbols-outlined">history</span> My History
+        </div>
+        <div class="nav-item" id="dnav-find-centers" onclick="showDashTab('find-centers')">
+          <span class="material-symbols-outlined">location_on</span> Find Centers
+        </div>
+        <div class="nav-item" id="dnav-rewards" onclick="showDashTab('rewards')">
+          <span class="material-symbols-outlined">emoji_events</span> Rewards
+        </div>
+        <div class="nav-item" id="dnav-profile" onclick="showDashTab('profile')">
+          <span class="material-symbols-outlined">person</span> My Profile
+        </div>
+      </nav>
+      <div class="sidebar-tip">
+        <div class="sidebar-tip-label">💧 Pro Tip</div>
+        <div class="sidebar-tip-text">Stay hydrated 24h before your next donation for a smoother experience!</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="nav-item" style="color:#ef4444;" onclick="handleLogout()" onmouseenter="this.style.background='#fef2f2'" onmouseleave="this.style.background=''">
+          <span class="material-symbols-outlined">logout</span> Sign Out
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dash-main">
+      <!-- Topbar -->
+      <div class="topbar">
+        <div class="topbar-left">
+          <button style="background:none;border:none;cursor:pointer;color:var(--text-secondary);display:flex;padding:4px;" onclick="toggleMobileSidebar()" class="mobile-menu-btn">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <span class="topbar-title" id="dash-page-title">Dashboard</span>
+        </div>
+        <div class="topbar-right">
+          <div class="location-chip" id="dash-location-chip">
+            <span class="material-symbols-outlined">location_on</span>
+            <span id="dash-location">Mumbai, IN</span>
+          </div>
+          <button class="notif-btn" onclick="openNotifPanel()" title="Notifications">
+            <span class="material-symbols-outlined" style="font-size:20px;">notifications</span>
+            <span class="notif-dot" id="notif-dot"></span>
+          </button>
+          <!-- Avatar with dropdown -->
+          <div class="avatar-wrapper" data-dropdown>
+            <div class="avatar-btn" id="dash-user-avatar" onclick="toggleDropdown('dash-profile-menu')" title="Profile">A</div>
+            <div class="dropdown-menu" id="dash-profile-menu">
+              <div style="padding:12px 16px;border-bottom:1px solid var(--border-subtle);">
+                <p style="font-size:13px;font-weight:700;color:var(--text-primary);" id="dd-name">Alex Johnson</p>
+                <p style="font-size:12px;color:var(--text-muted);" id="dd-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3958555c41795d5c5456175a5654">[email&#160;protected]</a></p>
+              </div>
+              <div class="dropdown-item" onclick="showDashTab('profile');toggleDropdown('dash-profile-menu')">
+                <span class="material-symbols-outlined" style="font-size:18px;">person</span> My Profile
+              </div>
+              <div class="dropdown-item" onclick="showDashTab('history');toggleDropdown('dash-profile-menu')">
+                <span class="material-symbols-outlined" style="font-size:18px;">history</span> Donation History
+              </div>
+              <div class="dropdown-item" onclick="showDashTab('rewards');toggleDropdown('dash-profile-menu')">
+                <span class="material-symbols-outlined" style="font-size:18px;">emoji_events</span> Rewards
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-item danger" onclick="handleLogout()">
+                <span class="material-symbols-outlined" style="font-size:18px;">logout</span> Sign Out
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="dash-content">
+
+        <!-- HOME TAB -->
+        <div id="dtab-home" class="animate-fade">
+          <div style="margin-bottom:24px;">
+            <h3 class="font-serif" style="font-size:26px;margin-bottom:4px;">Welcome back! 👋</h3>
+            <p style="color:var(--text-muted);font-size:14px;">Here's what's happening in your network today.</p>
+          </div>
+          <!-- Top bento grid -->
+          <div style="display:grid;grid-template-columns:1fr 2fr;gap:18px;margin-bottom:20px;">
+            <!-- Blood Type Card -->
+            <div class="glass card" style="padding:24px;position:relative;overflow:hidden;">
+              <div style="position:absolute;right:-20px;top:-20px;width:100px;height:100px;background:var(--primary-light);border-radius:50%;blur:30px;"></div>
+              <p style="font-size:11px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Your Blood Type</p>
+              <div class="font-serif" style="font-size:60px;color:var(--primary);line-height:1;margin-bottom:12px;" id="home-blood-type">O-</div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span class="material-symbols-outlined" style="color:var(--primary);font-size:16px;font-variation-settings:'FILL' 1;">verified</span>
+                <span style="font-size:12px;font-weight:600;color:var(--text-secondary);" id="home-blood-desc">Universal Donor</span>
+              </div>
+            </div>
+            <!-- Eligibility Card -->
+            <div class="glass card" style="padding:24px;background:linear-gradient(135deg,rgba(255,255,255,0.9),rgba(242,13,32,0.04));border:1px solid rgba(242,13,32,0.12);">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;height:100%;">
+                <div style="flex:1;">
+                  <span class="badge badge-live" id="home-eligibility" style="margin-bottom:12px;">
+                    <span class="dot"></span> Eligible to Donate
+                  </span>
+                  <h3 style="font-size:20px;font-weight:700;margin-bottom:8px;">You can save lives today!</h3>
+                  <p style="font-size:13px;color:var(--text-muted);max-width:300px;margin-bottom:18px;line-height:1.6;" id="last-donation-text">No donations yet — start today!</p>
+                  <button class="btn btn-primary btn-sm" onclick="showDashTab('requests')">
+                    <span class="material-symbols-outlined" style="font-size:15px;font-variation-settings:'FILL' 1;">volunteer_activism</span> Find a Request
+                  </button>
+                </div>
+                <div style="text-align:right;flex-shrink:0;">
+                  <p style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">Next Eligible</p>
+                  <p style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:14px;" id="home-next-eligible">Today</p>
+                  <p style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">Donations</p>
+                  <p style="font-size:22px;font-weight:800;color:var(--text-primary);" id="home-total-donations">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Stats row -->
+          <div class="grid-4" style="margin-bottom:24px;">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:#fee2e2;"><span class="material-symbols-outlined" style="color:var(--primary);font-variation-settings:'FILL' 1;">favorite</span></div>
+              <div class="stat-value" id="stat-total-donations">0</div>
+              <div class="stat-label">Total Donations</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background:#dbeafe;"><span class="material-symbols-outlined" style="color:var(--info);">people</span></div>
+              <div class="stat-value" id="stat-lives-saved">0</div>
+              <div class="stat-label">Lives Saved</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background:#fef3c7;"><span class="material-symbols-outlined" style="color:#d97706;">military_tech</span></div>
+              <div class="stat-value" style="font-size:17px;" id="stat-donor-level">New Donor</div>
+              <div class="stat-label">Donor Level</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background:#dcfce7;"><span class="material-symbols-outlined" style="color:var(--success);font-variation-settings:'FILL' 1;">star</span></div>
+              <div class="stat-value" id="stat-points">0</div>
+              <div class="stat-label">Reward Points</div>
+            </div>
+          </div>
+          <!-- Active requests preview -->
+          <div style="margin-bottom:24px;">
+            <div class="flex-between mb-4">
+              <h3 style="font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px;">
+                <span class="material-symbols-outlined" style="color:var(--primary);">emergency</span> Urgent Requests Near You
+              </h3>
+              <button class="btn btn-ghost btn-sm" onclick="showDashTab('requests')">View All →</button>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" id="home-req-list"></div>
+          </div>
+          <!-- Notifications -->
+          <div class="glass card" style="padding:24px;">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+              <span class="material-symbols-outlined" style="color:var(--primary);">notifications</span> Recent Notifications
+            </h3>
+            <div id="notif-list"></div>
+          </div>
+        </div>
+
+        <!-- BLOOD REQUESTS TAB -->
+        <div id="dtab-requests" class="hidden animate-fade">
+          <div class="flex-between mb-6" style="flex-wrap:wrap;gap:12px;">
+            <div>
+              <h3 class="font-serif" style="font-size:26px;margin-bottom:4px;">Blood Requests</h3>
+              <p style="color:var(--text-muted);font-size:13px;">Active requests — accept one to donate blood</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="navigateTo('request-blood')">
+              <span class="material-symbols-outlined" style="font-size:16px;">add</span> New Request
+            </button>
+          </div>
+          <!-- Filters -->
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
+            <select id="rf-blood" class="form-select" style="width:auto;" onchange="filterAndRenderRequests()">
+              <option value="">All Blood Types</option>
+              <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+              <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+            </select>
+            <select id="rf-urgency" class="form-select" style="width:auto;" onchange="filterAndRenderRequests()">
+              <option value="">All Urgency</option>
+              <option value="urgent">🔴 Urgent</option>
+              <option value="high">🟠 High Priority</option>
+              <option value="normal">🟢 Normal</option>
+            </select>
+            <select id="rf-status" class="form-select" style="width:auto;" onchange="filterAndRenderRequests()">
+              <option value="open">Open Requests</option>
+              <option value="all">All Requests</option>
+              <option value="accepted">Accepted</option>
+              <option value="mine">My Donations</option>
+            </select>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" id="req-list"></div>
+        </div>
+
+        <!-- HISTORY TAB -->
+        <div id="dtab-history" class="hidden animate-fade">
+          <h3 class="font-serif" style="font-size:26px;margin-bottom:20px;">Donation History</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;" id="history-list"></div>
+        </div>
+
+        <!-- PROFILE TAB -->
+        <div id="dtab-profile" class="hidden animate-fade">
+          <h3 class="font-serif" style="font-size:26px;margin-bottom:24px;">My Profile</h3>
+          <div style="display:grid;grid-template-columns:1fr 2fr;gap:20px;align-items:start;">
+            <!-- Profile card -->
+            <div class="stat-card" style="text-align:center;">
+              <div style="width:72px;height:72px;border-radius:20px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-size:28px;font-weight:700;margin:0 auto 14px;" id="profile-avatar-text">A</div>
+              <h4 style="font-size:17px;font-weight:700;" id="profile-full-name">Alex Johnson</h4>
+              <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;" id="profile-email-text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e7f727b665e7a7b7371307d7173">[email&#160;protected]</a></p>
+              <div class="blood-badge blood-badge-lg" style="margin:0 auto 16px;" id="profile-blood-badge">O-</div>
+              <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--border-subtle);padding-top:14px;margin-top:4px;">
+                <div class="flex-between" style="font-size:13px;"><span style="color:var(--text-muted);">Donations</span><span style="font-weight:700;" id="profile-stat-donations">0</span></div>
+                <div class="flex-between" style="font-size:13px;"><span style="color:var(--text-muted);">Lives Saved</span><span style="font-weight:700;" id="profile-stat-lives">0</span></div>
+                <div class="flex-between" style="font-size:13px;"><span style="color:var(--text-muted);">Points</span><span style="font-weight:700;color:var(--primary);" id="profile-stat-points">0</span></div>
+                <div class="flex-between" style="font-size:13px;"><span style="color:var(--text-muted);">Level</span><span style="font-weight:700;" id="profile-stat-level">New Donor</span></div>
+              </div>
+            </div>
+            <!-- Edit form -->
+            <div class="stat-card">
+              <h4 style="font-size:16px;font-weight:700;margin-bottom:20px;">Personal Information</h4>
+              <div style="display:flex;flex-direction:column;gap:16px;">
+                <div class="grid-2">
+                  <div class="form-group"><label class="form-label">First Name</label><input type="text" id="edit-fname" class="form-input"/></div>
+                  <div class="form-group"><label class="form-label">Last Name</label><input type="text" id="edit-lname" class="form-input"/></div>
+                </div>
+                <div class="form-group"><label class="form-label">Phone</label><input type="tel" id="edit-phone" class="form-input"/></div>
+                <div class="form-group"><label class="form-label">City</label><input type="text" id="edit-city" class="form-input"/></div>
+                <div class="form-group">
+                  <label class="form-label">Blood Type</label>
+                  <select id="edit-blood" class="form-select">
+                    <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                  </select>
+                </div>
+                <div class="form-group"><label class="form-label">Medical Notes (Optional)</label><textarea id="edit-notes" class="form-textarea" placeholder="Any relevant medical history..."></textarea></div>
+                <button class="btn btn-primary" style="width:fit-content;" onclick="saveProfile()">
+                  <span class="material-symbols-outlined" style="font-size:16px;">save</span> Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FIND CENTERS TAB -->
+        <div id="dtab-find-centers" class="hidden animate-fade">
+          <h3 class="font-serif" style="font-size:26px;margin-bottom:4px;">Find Donation Centers</h3>
+          <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;">Nearby hospitals and blood banks accepting donations</p>
+          <!-- Map -->
+          <div class="map-container" style="height:260px;margin-bottom:20px;">
+            <div class="map-grid"></div>
+            <div style="position:absolute;inset:0;background:radial-gradient(circle at 35% 45%,rgba(242,13,32,0.35) 0%,transparent 20%),radial-gradient(circle at 65% 35%,rgba(242,13,32,0.22) 0%,transparent 15%),radial-gradient(circle at 50% 70%,rgba(242,13,32,0.28) 0%,transparent 18%);pointer-events:none;"></div>
+            <div class="map-pin" style="top:36%;left:31%"><span class="material-symbols-outlined">location_on</span></div>
+            <div class="map-pin" style="top:50%;left:57%;animation-delay:0.7s;"><span class="material-symbols-outlined" style="font-size:22px;">location_on</span></div>
+            <div class="map-pin" style="top:28%;left:63%;animation-delay:1.4s;"><span class="material-symbols-outlined" style="font-size:22px;">location_on</span></div>
+            <div class="map-pin" style="top:62%;left:42%;animation-delay:0.35s;"><span class="material-symbols-outlined" style="font-size:22px;">location_on</span></div>
+            <div class="glass" style="position:absolute;bottom:14px;left:14px;padding:8px 14px;border-radius:10px;font-size:12px;font-weight:600;color:var(--text-primary);display:flex;align-items:center;gap:6px;">
+              <span class="material-symbols-outlined" style="color:var(--primary);font-size:15px;">location_searching</span>
+              Donation Centers Near You
+            </div>
+          </div>
+          <div class="grid-3" id="centers-grid"></div>
+        </div>
+
+        <!-- REWARDS TAB -->
+        <div id="dtab-rewards" class="hidden animate-fade">
+          <h3 class="font-serif" style="font-size:26px;margin-bottom:4px;">Donor Rewards</h3>
+          <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;">Earn points for every donation and unlock exclusive benefits</p>
+          <!-- Points summary -->
+          <div class="glass card" style="padding:28px;margin-bottom:20px;">
+            <div class="flex-between mb-4">
+              <div>
+                <p style="font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Total Points</p>
+                <div class="font-serif" style="font-size:44px;color:var(--primary);line-height:1;" id="reward-points-value">0</div>
+                <p style="font-size:12px;color:var(--text-muted);margin-top:4px;" id="reward-current-level">New Donor</p>
+              </div>
+              <div style="width:64px;height:64px;background:#fef3c7;border-radius:18px;display:flex;align-items:center;justify-content:center;">
+                <span class="material-symbols-outlined" style="color:#d97706;font-size:32px;font-variation-settings:'FILL' 1;">emoji_events</span>
+              </div>
+            </div>
+            <div class="progress-bar mb-2"><div class="progress-fill" id="reward-progress" style="width:5%;"></div></div>
+            <div class="flex-between">
+              <span style="font-size:12px;color:var(--text-muted);" id="reward-pts-to-next">200 pts to next level</span>
+              <span style="font-size:12px;color:var(--text-muted);">+100 pts per donation</span>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="stat-card">
+              <h4 style="font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="font-size:18px;">🏆</span> Donor Levels</h4>
+              <div style="display:flex;flex-direction:column;gap:4px;" id="levels-breakdown"></div>
+            </div>
+            <div class="stat-card">
+              <h4 style="font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span class="material-symbols-outlined" style="color:var(--primary);">card_giftcard</span> Perks & Benefits</h4>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fafafa;border-radius:10px;"><span style="font-size:20px;">🩺</span><div><p style="font-size:13px;font-weight:600;">Free Health Checkup</p><p style="font-size:11px;color:var(--text-muted);">After every donation</p></div></div>
+                <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fafafa;border-radius:10px;"><span style="font-size:20px;">🎫</span><div><p style="font-size:13px;font-weight:600;">Priority Medical Access</p><p style="font-size:11px;color:var(--text-muted);">At partner hospitals (Gold+)</p></div></div>
+                <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fafafa;border-radius:10px;"><span style="font-size:20px;">🏅</span><div><p style="font-size:13px;font-weight:600;">Digital Certificate</p><p style="font-size:11px;color:var(--text-muted);">Sharable achievement badges</p></div></div>
+                <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fafafa;border-radius:10px;"><span style="font-size:20px;">💰</span><div><p style="font-size:13px;font-weight:600;">Partner Discounts</p><p style="font-size:11px;color:var(--text-muted);">At 50+ businesses (Elite only)</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- dash-content -->
+
+      <!-- Mobile Bottom Nav -->
+      <nav class="mobile-nav">
+        <div class="mobile-nav-item active" id="dmob-home" onclick="showDashTab('home')"><span class="material-symbols-outlined">dashboard</span>Home</div>
+        <div class="mobile-nav-item" id="dmob-requests" onclick="showDashTab('requests')"><span class="material-symbols-outlined">emergency</span>Requests</div>
+        <div class="mobile-nav-item" id="dmob-history" onclick="showDashTab('history')"><span class="material-symbols-outlined">history</span>History</div>
+        <div class="mobile-nav-item" id="dmob-profile" onclick="showDashTab('profile')"><span class="material-symbols-outlined">person</span>Profile</div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     PAGE: HOSPITAL DASHBOARD
+     ======================================================== -->
+<div id="page-hospital-dashboard" class="page">
+  <div id="sidebar-overlay-h" class="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <span class="material-symbols-outlined" style="color:white;font-size:18px;">local_hospital</span>
+        </div>
+        <span class="sidebar-logo-text">VitalFlow</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-item active" id="hnav-overview" onclick="showHospitalTab('overview')"><span class="material-symbols-outlined">dashboard</span> Overview</div>
+        <div class="nav-item" id="hnav-my-requests" onclick="showHospitalTab('my-requests')"><span class="material-symbols-outlined">list_alt</span> My Requests</div>
+        <div class="nav-item" id="hnav-new-request" onclick="showHospitalTab('new-request')"><span class="material-symbols-outlined">add_circle</span> Post Request</div>
+        <div class="nav-item" id="hnav-donor-responses" onclick="showHospitalTab('donor-responses')"><span class="material-symbols-outlined">people</span> Donor Responses</div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="nav-item" style="color:#ef4444;" onclick="handleLogout()" onmouseenter="this.style.background='#fef2f2'" onmouseleave="this.style.background=''">
+          <span class="material-symbols-outlined">logout</span> Sign Out
+        </div>
+      </div>
+    </aside>
+    <div class="dash-main">
+      <div class="topbar">
+        <div class="topbar-left">
+          <button style="background:none;border:none;cursor:pointer;color:var(--text-secondary);display:flex;padding:4px;" onclick="toggleMobileSidebar()">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <span class="topbar-title" id="hosp-page-title">Hospital Dashboard</span>
+        </div>
+        <div class="topbar-right">
+          <div class="avatar-wrapper" data-dropdown>
+            <div class="avatar-btn" id="hosp-avatar-text" onclick="toggleDropdown('hosp-profile-menu')" style="background:#0f172a;">H</div>
+            <div class="dropdown-menu" id="hosp-profile-menu">
+              <div style="padding:12px 16px;border-bottom:1px solid var(--border-subtle);">
+                <p style="font-size:13px;font-weight:700;color:var(--text-primary);" id="hosp-name-display">City General Hospital</p>
+                <p style="font-size:11px;color:var(--text-muted);">Hospital Account</p>
+              </div>
+              <div class="dropdown-item" onclick="showHospitalTab('my-requests');toggleDropdown('hosp-profile-menu')">
+                <span class="material-symbols-outlined" style="font-size:18px;">list_alt</span> My Requests
+              </div>
+              <div class="dropdown-item" onclick="showHospitalTab('new-request');toggleDropdown('hosp-profile-menu')">
+                <span class="material-symbols-outlined" style="font-size:18px;">add_circle</span> Post Request
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-item danger" onclick="handleLogout()">
+                <span class="material-symbols-outlined" style="font-size:18px;">logout</span> Sign Out
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-content">
+
+        <!-- OVERVIEW -->
+        <div id="htab-overview" class="animate-fade">
+          <div style="margin-bottom:24px;">
+            <h3 class="font-serif" style="font-size:26px;margin-bottom:4px;">Hospital Dashboard</h3>
+            <p style="color:var(--text-muted);font-size:13px;">Manage blood requests and track donor responses</p>
+          </div>
+          <div class="grid-4" style="margin-bottom:20px;">
+            <div class="stat-card"><div class="stat-value" id="hosp-stat-total">0</div><div class="stat-label">Total Requests</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:var(--primary);" id="hosp-stat-open">0</div><div class="stat-label">Open Requests</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:var(--success);" id="hosp-stat-fulfilled">0</div><div class="stat-label">Fulfilled</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:var(--info);" id="hosp-stat-donors">0</div><div class="stat-label">Donors Responded</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="flex-between mb-4">
+              <h4 style="font-size:16px;font-weight:700;">Active Requests</h4>
+              <button class="btn btn-primary btn-sm" onclick="showHospitalTab('new-request')"><span class="material-symbols-outlined" style="font-size:15px;">add</span> New Request</button>
+            </div>
+            <div id="hosp-overview-list"></div>
+          </div>
+        </div>
+
+        <!-- MY REQUESTS -->
+        <div id="htab-my-requests" class="hidden animate-fade">
+          <div class="flex-between mb-6">
+            <h3 class="font-serif" style="font-size:26px;">My Requests</h3>
+            <button class="btn btn-primary btn-sm" onclick="showHospitalTab('new-request')"><span class="material-symbols-outlined" style="font-size:15px;">add</span> New Request</button>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;" id="hosp-req-list"></div>
+        </div>
+
+        <!-- NEW REQUEST -->
+        <div id="htab-new-request" class="hidden animate-fade">
+          <h3 class="font-serif" style="font-size:26px;margin-bottom:24px;">Post New Blood Request</h3>
+          <div class="stat-card" style="max-width:580px;">
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div class="grid-2">
+                <div class="form-group"><label class="form-label">Patient Name *</label><input type="text" id="hosp-req-patient" class="form-input" placeholder="Patient name"/></div>
+                <div class="form-group">
+                  <label class="form-label">Blood Type *</label>
+                  <select id="hosp-req-blood" class="form-select">
+                    <option value="">Select type</option>
+                    <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid-2">
+                <div class="form-group"><label class="form-label">Units Required *</label><input type="number" id="hosp-req-units" class="form-input" placeholder="2" min="1"/></div>
+                <div class="form-group">
+                  <label class="form-label">Urgency Level</label>
+                  <select id="hosp-req-urgency" class="form-select">
+                    <option value="urgent">🔴 Urgent (ASAP)</option>
+                    <option value="high">🟠 High Priority</option>
+                    <option value="normal">🟢 Normal</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group"><label class="form-label">Contact Number *</label><input type="tel" id="hosp-req-contact" class="form-input" placeholder="+91 22 1234 5678"/></div>
+              <div class="form-group"><label class="form-label">Distance from City Center (km)</label><input type="number" id="hosp-req-distance" class="form-input" placeholder="3.5" min="0.1" step="0.1"/></div>
+              <div class="form-group"><label class="form-label">Additional Notes</label><textarea id="hosp-req-notes" class="form-textarea" placeholder="Special requirements, timing, etc..."></textarea></div>
+              <p id="hosp-req-error" class="form-error hidden"></p>
+              <button class="btn btn-primary" style="padding:13px;font-size:14px;" onclick="handleHospitalRequest()">
+                <span class="material-symbols-outlined" style="font-size:17px;">send</span> Post Blood Request
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DONOR RESPONSES -->
+        <div id="htab-donor-responses" class="hidden animate-fade">
+          <h3 class="font-serif" style="font-size:26px;margin-bottom:20px;">Donor Responses</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;" id="hosp-donor-list"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     ACCEPT DONATION MODAL
+     ======================================================== -->
+<div id="accept-modal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="width:46px;height:46px;background:var(--primary-light);border-radius:13px;display:flex;align-items:center;justify-content:center;">
+          <span class="material-symbols-outlined" style="color:var(--primary);font-size:22px;font-variation-settings:'FILL' 1;">volunteer_activism</span>
+        </div>
+        <div>
+          <h3 style="font-size:18px;font-weight:700;">Accept Donation Request</h3>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:2px;">Confirm you'll go donate blood</p>
+        </div>
+      </div>
+      <button class="btn-icon" onclick="closeModal('accept-modal')" style="background:none;color:var(--text-muted);">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div id="modal-req-info" style="background:#fafafa;border-radius:12px;padding:16px;margin-bottom:16px;"></div>
+      <div style="background:#eff6ff;border-radius:12px;padding:14px;margin-bottom:16px;">
+        <p style="font-size:11px;font-weight:700;color:#1d4ed8;margin-bottom:5px;">📍 Getting There</p>
+        <p style="font-size:13px;color:#1e40af;line-height:1.5;" id="modal-directions">Head to the hospital and mention VitalFlow at reception.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="form-group">
+          <label class="form-label">Estimated Arrival Time</label>
+          <input type="datetime-local" id="modal-arrival-time" class="form-input"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Note to Hospital (Optional)</label>
+          <textarea id="modal-donor-note" class="form-textarea" placeholder="Any message to the hospital staff..."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" style="flex:1;" onclick="closeModal('accept-modal')">Cancel</button>
+      <button class="btn btn-primary" style="flex:2;" onclick="confirmAccept()">
+        <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1;">volunteer_activism</span>
+        Confirm & Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     TOAST NOTIFICATION
+     ======================================================== -->
+<div id="toast" role="alert">
+  <span id="toast-icon">✅</span>
+  <span id="toast-msg">Done!</span>
+  <button class="toast-close" onclick="this.parentElement.classList.remove('show')" aria-label="Close">
+    <span class="material-symbols-outlined" style="font-size:16px;">close</span>
+  </button>
+</div>
+
+<!-- Supabase client (required before db.js) -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Scripts -->
+<script src="js/db.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/hospital.js"></script>
+<script>
+  // Update dropdown name/email when user changes
+  // Wraps the async renderDonorDashboard to also refresh the top-bar dropdown
+  const _origRender = window.renderDonorDashboard;
+  window.renderDonorDashboard = async function(tab)
