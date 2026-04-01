@@ -67,45 +67,8 @@ vitalflow/
 
 ---
 
-## 🚀 Running Locally
 
-```bash
-# Clone the repo
-git clone https://github.com/Dhruvg0/vitalflow.git
-cd vitalflow
 
-# Start local server
-npx serve .
-```
-
-Open `http://localhost:3000` — requires a Supabase project (see setup below).
-
----
-
-## ⚙️ Supabase Setup
-
-1. Create a project at [supabase.com](https://supabase.com)
-2. Run `supabase_schema.sql` in the SQL Editor
-3. Add your credentials to `js/db.js`:
-```js
-const SUPABASE_URL = 'https://your-project-id.supabase.co';
-const SUPABASE_ANON_KEY = 'your-anon-public-key';
-```
-4. Enable Realtime on `notifications` and `blood_requests` tables
-5. Disable email confirmation for local dev: Authentication → Sign In / Providers → Confirm email OFF
-
-Full guide: [SUPABASE_SETUP.md](./SUPABASE_SETUP.md)
-
----
-
-## 🗄️ Database Schema
-
-| Table | Description |
-|---|---|
-| `profiles` | User accounts — donors & hospitals |
-| `blood_requests` | All blood requests (open / accepted / cancelled) |
-| `donations` | Completed donation records per donor |
-| `notifications` | Per-user real-time notification inbox |
 
 ---
 
@@ -117,30 +80,7 @@ Full guide: [SUPABASE_SETUP.md](./SUPABASE_SETUP.md)
 - ✅ Anon key safe for frontend — RLS is the real lock
 - ✅ Service role key never exposed in frontend code
 
----
 
-## 📱 Responsive Breakpoints
-
-| Breakpoint | Layout |
-|---|---|
-| < 480px | Single column, mobile-optimized |
-| 480–768px | 2-column grids |
-| 768–1024px | Sidebar + 2-3 column content |
-| > 1024px | Full sidebar + multi-column dashboard |
-
----
-
-## 🌐 Deployment
-
-Deployed on **Cloudflare Pages** for maximum speed across India (20+ edge locations).
-
-To deploy your own:
-1. Push to GitHub
-2. Connect repo to [Cloudflare Pages](https://pages.cloudflare.com)
-3. Framework: None, Build command: empty, Output: `/`
-4. Add your live URL to Supabase → Authentication → URL Configuration
-
----
 
 ## ✅ Browser Support
 
