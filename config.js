@@ -1,0 +1,4 @@
+const CONFIG = {
+  SUPABASE_URL: 'https://jmxucewjjpaqrrqtfsjf.supabase.co',
+  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpteHVjZXdqanBhcXJycXRmc2pmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwMjE0NjEsImV4cCI6MjA5MDU5NzQ2MX0.3t0TTk0cb3aTuwcIPaTa1sXYYoaO5CP4EWJob5H6zaU'
+}
