@@ -9,9 +9,8 @@
  *      (Dashboard → Settings → API)
  */
 
-const SUPABASE_URL = 'https://jmxucewjjpaqrrqtfsjf.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpteHVjZXdqanBhcXJycXRmc2pmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwMjE0NjEsImV4cCI6MjA5MDU5NzQ2MX0.3t0TTk0cb3aTuwcIPaTa1sXYYoaO5CP4EWJob5H6zaU';
-
+const SUPABASE_URL = CONFIG.SUPABASE_URL
+const SUPABASE_ANON_KEY = CONFIG.SUPABASE_ANON_KEY
 const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let _sessionCache = null;
