@@ -2,7 +2,7 @@
 
 An enterprise-grade blood donation management platform connecting donors and hospitals in real-time. Built with vanilla HTML, CSS, and JavaScript — powered by Supabase for authentication, live database, and real-time notifications.
 
-**Live:** [vitalflow-india.pages.dev](https://vitalflow-web.pages.dev/)
+**Live:** [vitalflow-web.pages.dev](https://vitalflow-web.pages.dev/)
 
 ---
 
